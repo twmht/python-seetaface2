@@ -6,11 +6,11 @@ A python API interface for [SeetaFaceEngine2](https://github.com/seetaface/Seeta
 
 ### Prerequisite
 
-Download binary model and SDK from [SeetaFaceEngine2](https://github.com/seetaface/SeetaFaceEngine2/blob/master/attachment/README.md)
+Download binary models and libraries from [SeetaFaceEngine2](https://github.com/seetaface/SeetaFaceEngine2/blob/master/attachment/README.md)
 
 and put all the share libraries (*.so) into `lib` 
 
-```
+``` bash
 git clone --recursive https://github.com/twmht/python-seetaface2
 cd python-seetaface2 
 cp $all_seetaface_lib ./lib/
@@ -21,7 +21,7 @@ python setup.py install
 
 # detect faces and their landmarks
 
-```
+``` python
 import seetaface
 import cv2
 
@@ -46,7 +46,7 @@ for rect in rects:
 
 # given a bounding box and detect the landmark
 
-```
+``` python
 import seetaface
 import cv2
 
