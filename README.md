@@ -19,7 +19,7 @@ python setup.py install
 
 ## Usage
 
-# detect faces and their landmarks
+### detect faces and their landmarks
 
 ``` python
 import seetaface
@@ -44,7 +44,7 @@ for rect in rects:
 
 ![Result](/example/example1_result.jpg)
 
-# given a bounding box and detect the landmark
+### given a bounding box and detect the landmark
 
 ``` python
 import seetaface
