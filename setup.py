@@ -61,6 +61,8 @@ class CMakeBuild(build_ext):
             #  cmake_args = []
             build_args += ['--', '-j4']
 
+        if 'USE_OPENCV3' in os.environ and os.environ['USE_OPENCV3'] == 'ON':
+            cmake_args += ['-DUSE_OPENCV3=ON']
         #  env = os.environ.copy()
         #  env['CXXFLAGS'] = '{} -DVERSION_INFO=\\"{}\\"'.format(
             #  env.get('CXXFLAGS', ''),

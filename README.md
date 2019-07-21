@@ -16,6 +16,12 @@ python setup.py install
 ```
 $seetaface_lib is a lib directory after you unzip the library SDK.
 
+If you want to build with opencv3
+
+``` bash
+USE_OPENCV3=ON python setup.py build
+```
+
 ## Usage
 
 ### detect faces and their landmarks
