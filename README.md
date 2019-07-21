@@ -6,16 +6,15 @@ A python API interface for [SeetaFaceEngine2](https://github.com/seetaface/Seeta
 
 ### Prerequisite
 
-Download binary models and libraries from [SeetaFaceEngine2](https://github.com/seetaface/SeetaFaceEngine2/blob/master/attachment/README.md)
-
-and put all the share libraries (*.so) into `lib` 
+Download binary models and libraries from [SeetaFaceEngine2](https://github.com/seetaface/SeetaFaceEngine2/blob/master/attachment/README.md) 
 
 ``` bash
 git clone --recursive https://github.com/twmht/python-seetaface2
 cd python-seetaface2 
-cp $all_seetaface_lib ./lib/
+cp $seetaface_lib ./
 python setup.py install
 ```
+$seetaface_lib is a lib directory after you unzip the library SDK.
 
 ## Usage
 
