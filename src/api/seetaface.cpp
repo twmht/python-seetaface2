@@ -5,6 +5,7 @@
 // #include <opencv2/core/core.hpp>
 #include <opencv2/opencv.hpp>
 #include <pybind11/stl_bind.h>
+#include <ndarray_converter.h>
 
 PYBIND11_MAKE_OPAQUE(std::vector<SeetaRect>);
 PYBIND11_MAKE_OPAQUE(std::vector<SeetaPointF>);
@@ -16,10 +17,17 @@ class SeetaImage {
     SeetaImage(const std::string &path) {
       cv::Mat mat = cv::imread(path.c_str());
       image.reset(new seeta::cv::ImageData(mat));
-  }
+    }
+    SeetaImage(const cv::Mat &mat) {
+      image.reset(new seeta::cv::ImageData(mat));
+    }
     seeta::cv::ImageData data() const {
       return *(image.get());
     }
+    cv::Mat mat_data() const {
+      return image->toMat();
+    }
+
   private:
     std::unique_ptr<seeta::cv::ImageData> image;
 };
@@ -65,6 +73,8 @@ class PointDetector {
 
 PYBIND11_MODULE(seetaface, m) {
 
+  NDArrayConverter::init_numpy();
+
   py::class_<SeetaRect, std::unique_ptr<SeetaRect>>(m, "SeetaRect")
     .def(py::init<>())
     .def_readwrite("x", &SeetaRect::x)
@@ -78,7 +88,9 @@ PYBIND11_MODULE(seetaface, m) {
     .def_readwrite("y", &SeetaPointF::y);
 
   py::class_<SeetaImage, std::shared_ptr<SeetaImage>>(m, "SeetaImage")
-    .def(py::init<const std::string &>());
+    .def(py::init<const std::string &>())
+    .def(py::init<const cv::Mat &>())
+    .def("data", &SeetaImage::mat_data);
 
   py::bind_vector<std::vector<SeetaRect>>(m, "VectorSeetaRect");
   py::bind_vector<std::vector<SeetaPointF>>(m, "VectorSeetaPoint");

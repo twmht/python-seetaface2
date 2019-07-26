@@ -25,6 +25,6 @@ set_target_properties(seeta_point_detector PROPERTIES IMPORTED_LOCATION ${CMAKE_
 
 
 SET ( CMAKE_CXX_FLAGS "-std=c++11")
-pybind11_add_module(seetaface ${SOURCE_DIR}/seetaface.cpp)
+pybind11_add_module(seetaface ${SOURCE_DIR}/seetaface.cpp ${SOURCE_DIR}/ndarray_converter.cpp)
 # target_link_libraries(seetaface PRIVATE seeta_face_cropper seeta_face_detector seeta_point_detector opencv_core opencv_highgui opencv_imgproc opencv_imgcodecs)
 target_link_libraries(seetaface PRIVATE seeta_face_cropper seeta_face_detector seeta_point_detector ${OPENCV_LIBS})

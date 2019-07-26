@@ -80,9 +80,9 @@ class CMakeBuild(build_ext):
         #  test_bin = os.path.join(self.build_temp, 'python_cpp_example_test')
         #  self.copy_test_file(test_bin)
         #  print()  # Add an empty line for cleaner output
-        build_dir = os.path.join(self.build_lib, 'pyrocksdb')
+        #  build_dir = os.path.join(self.build_lib, 'pyrocksdb')
 
-        #  libs = glob.glob(os.path.join(build_dir, '*.so'))
+        #  libs = glob.glob(os.path.join(self.build_lib, '*.so'))
         #  dst = 'tests'
         #  for lib in libs:
             #  copyfile(lib, os.path.join(dst, os.path.basename(lib)))
