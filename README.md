@@ -22,6 +22,18 @@ If you want to build with opencv3
 USE_OPENCV3=ON python setup.py build
 ```
 
+#### Notes
+Sometimes opencv package installed from apt-get may not be built successfully, you can try to build opencv from source.
+
+opencv-3.4.2 from source has been verified.
+
+Be sure to include the build
+
+```
+include_directories(${OPENCV_BUILD}/include)
+link_directories(${OPENCV_BUILD}/lib)
+```
+
 ## Usage
 
 ### detect faces and their landmarks
